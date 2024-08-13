@@ -2,6 +2,7 @@
 
 State* state; 
 Ball* ball;
+Platform* platform;
 
 void myInit() {
   
@@ -20,8 +21,24 @@ void display(void) {
 
   glClear(GL_COLOR_BUFFER_BIT);
   
-  drawCircle(ball->x, ball->y, ball->r, ball->red, ball->green, ball->blue);
-  drawCircle(100.0f, -100.0f, 10.0f, 0.0f, 0.0f, 1.0f);
+  drawCircle(
+    ball->x,
+    ball->y,
+    ball->r,
+    ball->red,
+    ball->green,
+    ball->blue
+  );
+
+  drawRectangle(
+    platform->x,
+    platform->y,
+    platform->w,
+    platform->h,
+    platform->red,
+    platform->green,
+    platform->blue
+  );
 
   glFlush();
 
@@ -58,6 +75,21 @@ int main(int argc, char** argv) {
   ball->red = 1.0f;
   ball->green = 0.0f;
   ball->blue = 0.0f;
+
+  if (!(platform = (Platform*) malloc(sizeof(Platform)))) {
+    free(platform);
+  }
+
+  platform->mass = 10.0f;
+  platform->x = 0.0f;
+  platform->y = -100.0f;
+  platform->w = 500.0f;
+  platform->h = 50.0f;
+  platform->vX = 0.0f;
+  platform->vY = 0.0f;
+  platform->red = 0.0f;
+  platform->green = 1.0f;
+  platform->blue = 0.0f;
 
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);

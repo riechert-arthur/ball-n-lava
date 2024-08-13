@@ -1,6 +1,13 @@
 #include "graphics.h"
 
-void drawCircle(float xOffset, float yOffset, float r, float red, float green, float blue) {
+void drawCircle(
+  float xOffset,
+  float yOffset,
+  float r,
+  float red,
+  float green,
+  float blue
+) {
   
   glBegin(GL_TRIANGLE_FAN);
   glColor3f(red, green, blue);
@@ -20,5 +27,32 @@ void drawCircle(float xOffset, float yOffset, float r, float red, float green, f
 
   glColor3f(0.0f, 0.0f, 0.0f);
   glEnd();
+
+  return;
+
+}
+
+void drawRectangle(
+  float xOffset,
+  float yOffset,
+  float w,
+  float h,
+  float red,
+  float green,
+  float blue
+) {
+
+  glBegin(GL_POLYGON);
+  glColor3f(red, green, blue);
+
+  glVertex2f(xOffset, yOffset);
+  glVertex2f(xOffset + w, yOffset);
+  glVertex2f(xOffset + w, yOffset - h);
+  glVertex2f(xOffset, yOffset - h);
+
+  glColor3f(0.0f, 0.0f, 0.0f);
+  glEnd();
+
+  return;
 
 }

@@ -8,5 +8,6 @@
 #define NUM_SEGMENTS 200
 
 void drawCircle(float, float, float, float, float, float);
+void drawRectangle(float, float, float, float, float, float, float);
 
 #endif

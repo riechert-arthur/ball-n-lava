@@ -6,6 +6,7 @@
 #include "graphics.h"
 #include "physics.h"
 #include "ball.h"
+#include "platform.h"
 
 State* state;
 

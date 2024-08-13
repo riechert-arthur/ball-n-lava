@@ -22,5 +22,6 @@ typedef struct {
 
 void elapseTime(State*);
 void updatePosition(float, float, EntityProperties*, State*, float);
+void applyForce(float, float, EntityProperties*, State*, float, float);
 
 #endif

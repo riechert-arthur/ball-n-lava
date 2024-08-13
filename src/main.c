@@ -17,6 +17,24 @@ void myInit() {
 
 }
 
+void handleKeypress(unsigned char key, int x, int y) {
+
+  switch (key) {
+
+    case 27:
+      exit(0);
+
+    case 'a':
+      applyForce(500.0f, 0.0f, platform->entity, state, -10.0f, 0.0f);  
+      break;
+
+    case 'd':
+      applyForce(500.0f, 0.0f, platform->entity, state, 10.0f, 0.0f);  
+      break;
+
+  }
+}
+
 void display(void) {
 
   glClear(GL_COLOR_BUFFER_BIT);
@@ -47,8 +65,8 @@ void display(void) {
 void update(void) {
  
   elapseTime(state);
-  updatePosition(0.0f, 0.0f, ball->entity, state, 10.0f);
-  updatePosition(0.0f, 0.0f, platform->entity, state, 1.0f);
+  updatePosition(0.0f, 0.0f, ball->entity, state, 100.0f);
+  updatePosition(0.0f, 0.0f, platform->entity, state, 0.0f);
   glutPostRedisplay();
 
 }
@@ -111,6 +129,7 @@ int main(int argc, char** argv) {
   glutCreateWindow("Circle Drawing");
   myInit();
 
+  glutKeyboardFunc(handleKeypress);
   glutDisplayFunc(display);
   glutIdleFunc(update);
   glutMainLoop();

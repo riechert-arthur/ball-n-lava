@@ -30,3 +30,25 @@ void updatePosition(
   return;
 
 }
+
+void applyForce(
+  float fX,
+  float fY,
+  EntityProperties* entity,
+  State* state,
+  float fMultiplier,
+  float gMultiplier
+) {
+
+  if (entity->mass == 0.0f) {
+    return;
+  }
+
+  float dVX = fX * fMultiplier / entity->mass;
+  float dVY = fY * fMultiplier / entity->mass;
+
+  updatePosition(dVX, dVY, entity, state, gMultiplier);
+
+  return;
+
+}

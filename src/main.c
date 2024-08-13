@@ -20,8 +20,8 @@ void display(void) {
 
   glClear(GL_COLOR_BUFFER_BIT);
   
-  drawCircle(ball->x, ball->y, ball->r);
-  drawCircle(100.0f, -100.0f, 10.0f);
+  drawCircle(ball->x, ball->y, ball->r, ball->red, ball->green, ball->blue);
+  drawCircle(100.0f, -100.0f, 10.0f, 0.0f, 0.0f, 1.0f);
 
   glFlush();
 
@@ -55,6 +55,9 @@ int main(int argc, char** argv) {
   ball->r = 100.0f;
   ball->vX = 0.0f;
   ball->vY = 0.0f;
+  ball->red = 1.0f;
+  ball->green = 0.0f;
+  ball->blue = 0.0f;
 
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);

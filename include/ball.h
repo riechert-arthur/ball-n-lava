@@ -8,6 +8,9 @@ typedef struct ball {
   float r;
   float vX;
   float vY;
+  float red;
+  float green;
+  float blue;
 } Ball;
 
 #endif

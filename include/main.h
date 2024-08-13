@@ -4,5 +4,9 @@
 #include <stdio.h>
 
 #include "graphics.h"
+#include "physics.h"
+#include "ball.h"
+
+State* state;
 
 #endif

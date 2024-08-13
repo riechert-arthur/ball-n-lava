@@ -1,13 +1,11 @@
 #ifndef BALL_H
 #define BALL_H
 
+#include "physics.h"
+
 typedef struct ball {
-  float mass;
-  float x;
-  float y;
+  EntityProperties* entity;
   float r;
-  float vX;
-  float vY;
   float red;
   float green;
   float blue;

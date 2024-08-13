@@ -13,17 +13,19 @@ void elapseTime(State* state) {
 
 }
 
-void updatePosition(float dVX, float dVY, Ball* entity, State* state) {
+void updatePosition(
+  float dVX,
+  float dVY,
+  EntityProperties* entity,
+  State* state,
+  float gMultiplier
+) {
  
-  /**
-  * Only accounts for gravity so far.
-  */
-  
   entity->vX += dVX;
-  entity->vY += dVY - G * state->delta;
+  entity->vY += dVY - G * gMultiplier * state->delta;
 
   entity->x += entity->vX * state->delta;
-  entity->y += entity->vY * state->delta + 0.5 * -G * powf(state->delta, 2.0f);
+  entity->y += entity->vY * state->delta + 0.5 * -G * gMultiplier * powf(state->delta, 2.0f);
 
   return;
 

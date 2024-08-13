@@ -22,8 +22,8 @@ void display(void) {
   glClear(GL_COLOR_BUFFER_BIT);
   
   drawCircle(
-    ball->x,
-    ball->y,
+    ball->entity->x,
+    ball->entity->y,
     ball->r,
     ball->red,
     ball->green,
@@ -31,8 +31,8 @@ void display(void) {
   );
 
   drawRectangle(
-    platform->x,
-    platform->y,
+    platform->entity->x,
+    platform->entity->y,
     platform->w,
     platform->h,
     platform->red,
@@ -47,7 +47,8 @@ void display(void) {
 void update(void) {
  
   elapseTime(state);
-  updatePosition(0.0f, 0.0f, ball, state);
+  updatePosition(0.0f, 0.0f, ball->entity, state, 10.0f);
+  updatePosition(0.0f, 0.0f, platform->entity, state, 1.0f);
   glutPostRedisplay();
 
 }
@@ -66,12 +67,17 @@ int main(int argc, char** argv) {
     free(ball);
   }
 
-  ball->mass = 10.0f;
-  ball->x = 0.0f;
-  ball->y = 0.0f;
+  if (!(ball->entity = (EntityProperties*) malloc(sizeof(EntityProperties)))) {
+    free(ball->entity);
+    free(ball);
+  }
+
+  ball->entity->mass = 10.0f;
+  ball->entity->x = 0.0f;
+  ball->entity->y = 0.0f;
   ball->r = 100.0f;
-  ball->vX = 0.0f;
-  ball->vY = 0.0f;
+  ball->entity->vX = 0.0f;
+  ball->entity->vY = 0.0f;
   ball->red = 1.0f;
   ball->green = 0.0f;
   ball->blue = 0.0f;
@@ -80,13 +86,18 @@ int main(int argc, char** argv) {
     free(platform);
   }
 
-  platform->mass = 10.0f;
-  platform->x = 0.0f;
-  platform->y = -100.0f;
+  if (!(platform->entity = (EntityProperties*) malloc(sizeof(EntityProperties)))) {
+    free(ball->entity);
+    free(ball);
+  }
+
+  platform->entity->mass = 10.0f;
+  platform->entity->x = 0.0f;
+  platform->entity->y = -100.0f;
   platform->w = 500.0f;
   platform->h = 50.0f;
-  platform->vX = 0.0f;
-  platform->vY = 0.0f;
+  platform->entity->vX = 0.0f;
+  platform->entity->vY = 0.0f;
   platform->red = 0.0f;
   platform->green = 1.0f;
   platform->blue = 0.0f;

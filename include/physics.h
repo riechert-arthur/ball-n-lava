@@ -3,17 +3,24 @@
 
 #include <time.h>
 #include <math.h>
-#include <ball.h>
 
-#define G 1000.00
+#define G 9.81
 
-typedef struct state {
+typedef struct { 
   clock_t lastUpdate; 
   float elapsedTime;
   float delta;
 } State;
 
+typedef struct {
+  float mass; 
+  float x;
+  float y;
+  float vX;
+  float vY;
+} EntityProperties; 
+
 void elapseTime(State*);
-void updatePosition(float, float, Ball*, State*);
+void updatePosition(float, float, EntityProperties*, State*, float);
 
 #endif

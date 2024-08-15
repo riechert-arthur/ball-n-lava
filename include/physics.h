@@ -3,6 +3,7 @@
 
 #include <time.h>
 #include <math.h>
+#include <stdlib.h>
 
 #define G 9.81
 
@@ -28,5 +29,6 @@ typedef struct {
 void elapseTime(State*);
 void updatePosition(float, float, EntityProperties*, State*, float);
 void applyForce(float, float, EntityProperties*, State*, float, float);
+State* initState(void);
 
 #endif

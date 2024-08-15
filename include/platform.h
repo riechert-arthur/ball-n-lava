@@ -12,4 +12,6 @@ typedef struct {
   float blue;
 } Platform; 
 
+void update(void);
+
 #endif

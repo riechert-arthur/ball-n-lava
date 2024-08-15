@@ -3,11 +3,7 @@
 
 #include <stdio.h>
 
-#include "graphics.h"
-#include "physics.h"
-#include "collisions.h"
-#include "ball.h"
-#include "platform.h"
-#include "entities.h"
+#include "init.h"
+#include "game.h"
 
 #endif

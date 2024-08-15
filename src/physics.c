@@ -52,3 +52,20 @@ void applyForce(
   return;
 
 }
+
+State* initState(void) {
+
+  State* state; 
+
+  if (!(state = (State*) malloc(sizeof(State)))) {
+    free(state);
+    return NULL;
+  }
+
+  state->lastUpdate = 0;
+  state->elapsedTime = 0.0f;
+  state->delta = 0.0f;
+
+  return state;
+
+}

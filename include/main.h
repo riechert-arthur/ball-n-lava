@@ -5,9 +5,9 @@
 
 #include "graphics.h"
 #include "physics.h"
+#include "collisions.h"
 #include "ball.h"
 #include "platform.h"
-
-State* state;
+#include "entities.h"
 
 #endif

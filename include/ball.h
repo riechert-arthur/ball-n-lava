@@ -3,7 +3,7 @@
 
 #include "physics.h"
 
-typedef struct ball {
+typedef struct { 
   EntityProperties* entity;
   float r;
   float red;
